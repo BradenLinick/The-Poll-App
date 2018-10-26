@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVotesTable extends Migration
+class VoteCounter extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateVotesTable extends Migration
      */
     public function up()
     {
-        Schema::create('votes', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('user_id');
-            $table->unsignedInteger('poll_id');
-            $table->unsignedInteger('choice_id');
-            $table->timestamps();
+        Schema::table('choices', function (Blueprint $table) {
+          $table->integer('counter')->after('poll_id')->default(0);
         });
     }
 
@@ -29,6 +25,8 @@ class CreateVotesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('votes');
+        Schema::table('choices', function (Blueprint $table) {
+            $table->dropColumn('counter');
+        });
     }
 }

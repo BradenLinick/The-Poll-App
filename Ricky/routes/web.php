@@ -17,10 +17,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/create', 'PollController@create');
 Route::post('/create', 'PollController@store');
 
 Route::get('/index', 'PollController@index');
+Route::get('/index/{id}', 'PollController@next');
+Route::post('/index/{id}', 'PollController@add');
+
 Route::post('/index', 'PollController@add');
