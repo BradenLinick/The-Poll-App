@@ -23,5 +23,6 @@ Route::post('/create', 'PollController@store');
 Route::get('/index', 'PollController@index');
 Route::get('/index/{id}', 'PollController@next');
 Route::post('/index/{id}', 'PollController@add');
+// Route::get('index/{id}', 'PollController@go');
 
 Route::post('/index', 'PollController@add');

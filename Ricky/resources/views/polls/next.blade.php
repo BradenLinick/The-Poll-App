@@ -20,6 +20,7 @@
             </form>
 
             
+            <a href="{{ action('PollController@index') }}" class="btn btn-primary">Back to index</a>
 
             
             

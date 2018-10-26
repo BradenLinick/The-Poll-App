@@ -15,12 +15,10 @@ class PollController extends Controller
     //        $this->middleware('auth')->only(['create', 'store']);
     }
     public function index(){
-        $poll = poll::get();
-        $choice = choices::get();
+        $polls = poll::get();
 
         return view('polls.index', [
-        'poll' => $poll,
-        'choice' => $choice
+        'polls' => $polls
       ]);
     }
 
