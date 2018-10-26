@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class poll extends Model
 {
     protected $table = 'polls';
-    protected $fillable = 'question';
+    protected $fillable = ['question'];
 
     public function choices(){
       return $this->hasMany("App\choices");

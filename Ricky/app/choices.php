@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class choices extends Model
 {
     protected $table = 'choices';
-    protected $fillable = 'choice';
+    protected $fillable = ['choice', 'poll_id'];
 
     public function poll(){
       return $this->belongsTo("App\poll");
